@@ -37,10 +37,9 @@ function render(variables = {}) {
     variables.lastName === null ? "" : variables.lastName
   }</h1>
           <h2>${variables.role === null ? "" : variables.role}</h2>
-          <h3>${variables.city === null ? "" : variables.city}, ${
-    variables.country === null ? "" : variables.country
-  }</h3>    
-<ul class="${
+          <h3>${variables.city === null ? "" : variables.city}${
+    variables.city === null ? "" : ","
+  } ${variables.country === null ? "" : variables.country}</h3> <ul class="${
     variables.socialMediaPosition === "position-left"
       ? "position-left"
       : "position-right"
