@@ -33,15 +33,29 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
-          </ul>
+          <h1>${variables.name === null ? "" : variables.name} ${
+    variables.lastName === null ? "" : variables.lastName
+  }</h1>
+          <h2>${variables.role === null ? "" : variables.role}</h2>
+          <h3>${variables.city === null ? "" : variables.city}, ${
+    variables.country === null ? "" : variables.country
+  }</h3>    
+<ul class="${
+    variables.socialMediaPosition === "position-left"
+      ? "position-left"
+      : "position-right"
+  }">
+            <li><a href="${
+              variables.twitter === "" ? "" : variables.twitter
+            }"><i class="fab fa-twitter"></i></a></li>            <li><a href="${
+    variables.github === "" ? "" : variables.github
+  }"><i class="fab fa-github"></i></a></li>
+            <li><a href="${
+              variables.linkedin === "" ? "" : variables.linkedin
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${
+              variables.instagram === "" ? "" : variables.instagram
+            }"><i class="fab fa-instagram"></i></a></li></ul>
         </div>
     `;
 }
@@ -54,9 +68,11 @@ window.onload = function() {
     // if includeCover is true the algorithm should show the cover image
     includeCover: true,
     // this is the image's url that will be used as a background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://upload.wikimedia.org/wikipedia/commons/c/c1/Escena_del_infierno._%C3%93leo,_s._XX._Autor%C3%ADa_desconocida._En_(E)mancipa-Ment_(Cullera,_Valencia).jpg",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://imgs.search.brave.com/KPKIOA_iTXcGhR_NbwqqQqJqp4SVn5urOke31JhZa18/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pLmRp/c2NvZ3MuY29tL0tX/Ny1TTWRKa25KQ3Fw/Qldib1BPY254Nk5U/dGVuYkZDcHNESUNI/TllaTWsvcnM6Zml0/L2c6c20vcTo0MC9o/OjMwMC93OjMwMC9j/ek02THk5a2FYTmpi/MmR6L0xXUmhkR0Zp/WVhObExXbHQvWVdk/bGN5OUJMVFF6TXpV/dy9MVEV6TkRRNE16/ZzBPREV0L016YzJP/QzVxY0dWbi5qcGVn",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
